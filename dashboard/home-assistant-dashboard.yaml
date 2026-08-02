@@ -1,0 +1,45 @@
+title: Qualité de l'air
+views:
+  - title: Bureau
+    path: bureau
+    icon: mdi:air-filter
+    cards:
+      - type: entities
+        title: Air du bureau
+        entities:
+          - entity: sensor.sen66_bureau_co2
+          - entity: sensor.sen66_bureau_pm2_5
+          - entity: sensor.sen66_bureau_voc_index
+          - entity: sensor.sen66_bureau_nox_index
+          - entity: sensor.sen66_bureau_temperature
+          - entity: sensor.sen66_bureau_humidity
+          - entity: binary_sensor.sen66_bureau_problem
+
+      - type: history-graph
+        title: CO₂ — 24 heures
+        hours_to_show: 24
+        entities:
+          - entity: sensor.sen66_bureau_co2
+
+      - type: history-graph
+        title: Particules — 24 heures
+        hours_to_show: 24
+        entities:
+          - entity: sensor.sen66_bureau_pm1
+          - entity: sensor.sen66_bureau_pm2_5
+          - entity: sensor.sen66_bureau_pm4
+          - entity: sensor.sen66_bureau_pm10
+
+      - type: history-graph
+        title: Gaz — 24 heures
+        hours_to_show: 24
+        entities:
+          - entity: sensor.sen66_bureau_voc_index
+          - entity: sensor.sen66_bureau_nox_index
+
+      - type: history-graph
+        title: Confort — 24 heures
+        hours_to_show: 24
+        entities:
+          - entity: sensor.sen66_bureau_temperature
+          - entity: sensor.sen66_bureau_humidity

@@ -1,0 +1,27 @@
+[Unit]
+Description=SEN66 to Home Assistant MQTT bridge
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=sen66-ha
+Group=sen66-ha
+SupplementaryGroups=i2c
+EnvironmentFile=/etc/sen66-ha.env
+ExecStart=/opt/sen66-ha/.venv/bin/python /opt/sen66-ha/sen66_mqtt.py
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=15
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target
